@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        serif: ['Playfair Display', 'serif'],
+        mono: ['Fira Code', 'monospace'],
       },
       colors: {
         navy: {
