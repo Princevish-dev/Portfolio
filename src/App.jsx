@@ -585,6 +585,57 @@ export default function App() {
           </div>
         </section>
       </div>
+
+      {/* Project Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+          >
+            <div className="absolute inset-0 bg-[#05050A]/80 backdrop-blur-md" onClick={() => setSelectedProject(null)} />
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#0a0a1a] border border-white/[0.1] rounded-3xl shadow-2xl z-10 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/10 [&::-webkit-scrollbar-thumb]:rounded-full"
+            >
+              <div className="sticky top-0 right-0 flex justify-end p-4 z-20 pointer-events-none">
+                <button 
+                  onClick={() => setSelectedProject(null)}
+                  className="pointer-events-auto w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 backdrop-blur-md flex items-center justify-center text-white transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+              
+              <div className="h-64 sm:h-80 w-full relative -mt-14">
+                <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/60 to-transparent" />
+                <div className="absolute bottom-8 left-8 right-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                  <div>
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-3">{selectedProject.title}</h2>
+                    <span className="text-xs font-mono px-4 py-1.5 rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">{selectedProject.tag}</span>
+                  </div>
+                  <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold flex items-center gap-2 transition-colors w-fit">
+                    <FaGithub /> Source Code
+                  </a>
+                </div>
+              </div>
+              
+              <div className="p-8 sm:p-12 border-t border-white/[0.05]">
+                {selectedProject.details || (
+                  <p className="text-slate-300 text-lg leading-relaxed">{selectedProject.impact}</p>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </div>
   );
 }
