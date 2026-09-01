@@ -61,6 +61,43 @@ const PROJECTS = [
     title: "Agent Saathi",
     tag: "Multi-Agent Framework",
     impact: "A modular multi-agent system implementing 15 ADK concepts for emotional support, study planning, and community impact.",
+    details: (
+      <div className="space-y-6 text-slate-300 text-sm md:text-base leading-relaxed">
+        <p><strong className="text-white text-lg">🌟 Agent Saathi – Your Companion for Good</strong><br/><br/>"Transforming discomfort into design-worthy comfort — helping users heal, grow, and create with soul."<br/><br/>A comprehensive multi-agent system implementing all 15 ADK concepts that provides compassionate emotional support, personalized study planning, and community impact through advanced AI companionship.</p>
+        
+        <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
+          <h4 className="text-white font-bold text-xl mb-4">🎯 All 15 ADK Concepts Implemented</h4>
+          
+          <h5 className="text-cyan-400 font-semibold mt-6 mb-2">🤖 Multi-agent System</h5>
+          <ul className="list-disc pl-5 space-y-2 mt-3 text-slate-400">
+            <li><strong className="text-slate-300">Agent powered by LLM:</strong> Gemini AI integration</li>
+            <li><strong className="text-slate-300">Sequential agents:</strong> Emotional → Study workflow</li>
+            <li><strong className="text-slate-300">Parallel agents:</strong> Concurrent execution</li>
+            <li><strong className="text-slate-300">Loop agents:</strong> EmotionalLoopAgent with retry</li>
+          </ul>
+
+          <h5 className="text-cyan-400 font-semibold mt-8 mb-2">🛠️ Tools & Integration</h5>
+          <ul className="list-disc pl-5 space-y-2 mt-3 text-slate-400">
+            <li><strong className="text-slate-300">MCP Tools:</strong> Model Context Protocol</li>
+            <li><strong className="text-slate-300">Custom tools:</strong> FileTools, AnalysisTools, SocialTools</li>
+            <li><strong className="text-slate-300">Built-in tools:</strong> Google Gemini AI</li>
+            <li><strong className="text-slate-300">OpenAPI tools:</strong> External API integration</li>
+          </ul>
+
+          <h5 className="text-cyan-400 font-semibold mt-8 mb-2">🧠 Advanced Features</h5>
+          <ul className="list-disc pl-5 space-y-2 mt-3 text-slate-400">
+            <li><strong className="text-slate-300">Long-running operations:</strong> Pause/Resume capability</li>
+            <li><strong className="text-slate-300">Sessions & Memory:</strong> State management</li>
+            <li><strong className="text-slate-300">Long term memory:</strong> EmotionalMemoryBank</li>
+            <li><strong className="text-slate-300">Context engineering:</strong> Auto memory compaction</li>
+            <li><strong className="text-slate-300">Observability:</strong> Logging, Tracing, Metrics</li>
+            <li><strong className="text-slate-300">Agent evaluation:</strong> Performance metrics</li>
+            <li><strong className="text-slate-300">A2A Protocol:</strong> Inter-agent communication</li>
+            <li><strong className="text-slate-300">Agent deployment:</strong> Professional packaging</li>
+          </ul>
+        </div>
+      </div>
+    ),
     image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=800&auto=format&fit=crop",
     icon: <FiCpu className="w-8 h-8 text-cyan-400" />,
     gradient: "from-cyan-500/20 via-cyan-500/5 to-transparent",
