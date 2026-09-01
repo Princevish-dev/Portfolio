@@ -118,6 +118,7 @@ function ThreeDHeroScene({ setIsHovering }) {
 
 export default function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [selectedProject, setSelectedProject] = useState(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isNavVisible, setIsNavVisible] = useState(false);
   const heroRef = useRef(null);
@@ -322,7 +323,7 @@ export default function App() {
         {/* --- SECTION 2: MY EDUCATION --- */}
         <section id="education" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">02. My Education</h2>
+            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">My Education</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Academic Foundation</h3>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.05] shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden group hover:border-white/[0.1] transition-all duration-500">
@@ -332,7 +333,7 @@ export default function App() {
                 <h4 className="text-3xl font-serif font-bold text-white mb-2">B.Tech Engineering</h4>
                 <p className="text-xl text-slate-400 font-light mb-6">Lovely Professional University</p>
                 <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 font-mono text-sm shadow-[0_0_15px_rgba(79,70,229,0.2)]">
-                  <FaGraduationCap className="w-5 h-5" /> CGPA: 8.7/10
+                  <FaGraduationCap className="w-5 h-5" /> CGPA: 7.16/10
                 </div>
               </div>
               <div className="hidden md:block w-32 h-32 relative">
@@ -347,14 +348,23 @@ export default function App() {
         {/* --- SECTION 3: MY SKILLS --- */}
         <section id="skills" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-right">
-            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">03. My Skills</h2>
+            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">My Skills</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Core Competencies</h3>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {[{name: "Communication", icon: <FiMessageSquare/>}, {name: "Public Speaking", icon: <FiAward/>}, {name: "Creative Writing", icon: <FiCode/>}, {name: "Team Collaboration", icon: <FiLayers/>}, {name: "MS Office", icon: <FiDatabase/>}].map((skill, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="p-6 rounded-3xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.08] hover:border-cyan-500/30 transition-all duration-500 flex flex-col items-center justify-center text-center gap-4 group hover:-translate-y-2 shadow-[0_0_30px_rgba(0,0,0,0.3)]">
-                <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-400/20 group-hover:border-cyan-400/50 transition-all duration-500 shadow-lg">{skill.icon}</div>
-                <span className="font-mono text-xs text-slate-300 tracking-wider uppercase">{skill.name}</span>
+            {[
+              {name: "Communication", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400&auto=format&fit=crop"}, 
+              {name: "Public Speaking", img: "https://images.unsplash.com/photo-1475721028314-3905f1725c63?q=80&w=400&auto=format&fit=crop"}, 
+              {name: "Creative Writing", img: "https://images.unsplash.com/photo-1455390582262-044cdead2708?q=80&w=400&auto=format&fit=crop"}, 
+              {name: "Collaboration", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=400&auto=format&fit=crop"}, 
+              {name: "Tech & MS Office", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=400&auto=format&fit=crop"}
+            ].map((skill, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="relative h-40 rounded-3xl bg-white/[0.02] border border-white/[0.05] overflow-hidden group hover:-translate-y-2 shadow-[0_0_30px_rgba(0,0,0,0.3)] transition-all duration-500">
+                <img src={skill.img} alt={skill.name} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-70 group-hover:scale-110 transition-all duration-700 mix-blend-overlay grayscale group-hover:grayscale-0" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05050A] via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-0 right-0 text-center">
+                  <span className="font-mono text-xs text-slate-200 tracking-wider uppercase font-bold drop-shadow-md">{skill.name}</span>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -363,16 +373,16 @@ export default function App() {
         {/* --- SECTION 4: MY INTERNSHIP EXPERIENCE --- */}
         <section id="experience" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">04. My Internship Experience</h2>
+            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">My Internship Experience</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Professional Journey</h3>
           </motion.div>
           <div className="relative pl-8 md:pl-0 mt-20">
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/50 via-cyan-400/20 to-transparent -translate-x-1/2" />
             <TimelineNode 
               item={{ 
-                title: "Content Writing Intern", 
-                subtitle: "Bright Minds Media", 
-                content: "Delivered high-quality content, enhanced communication strategies, and collaborated with cross-functional teams to drive brand engagement.",
+                title: "Software Engineering Intern", 
+                subtitle: "Your Next Company", 
+                content: "Actively seeking opportunities to build robust systems, optimize backend architectures, and implement scalable machine learning models.",
                 icon: <HiOutlineBriefcase className="w-6 h-6 text-indigo-400" />
               }} 
               index={0} 
@@ -384,31 +394,31 @@ export default function App() {
         {/* --- SECTION 5: MY PROJECT --- */}
         <section id="projects" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-right">
-            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">05. My Project</h2>
+            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">My Project</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Featured Work</h3>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PROJECTS.map((p, i) => <ProjectCard key={i} project={p} index={i} setIsHovering={setIsHovering} />)}
+            {PROJECTS.map((p, i) => <ProjectCard key={i} project={p} index={i} setIsHovering={setIsHovering} setSelectedProject={setSelectedProject} />)}
           </div>
         </section>
 
         {/* --- SECTION 6: MY ACHIEVEMENTS --- */}
         <section id="achievements" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">06. My Achievements</h2>
+            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">My Achievements</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Milestones</h3>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Metric title="2023" subtitle="Dean's List" delay={0} />
-            <Metric title="1st" subtitle="Extempore Winner" delay={0.1} />
-            <Metric title="NSS" subtitle="Active Volunteer" delay={0.2} />
+            <Metric title="500+" subtitle="GitHub Contributions" delay={0} />
+            <Metric title="1st" subtitle="Hackathon Excellence" delay={0.1} />
+            <Metric title="OSS" subtitle="Open Source Contributor" delay={0.2} />
           </div>
         </section>
 
         {/* --- SECTION 7: MY STRENGTHS --- */}
         <section id="strengths" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
-            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">07. My Strengths</h2>
+            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">My Strengths</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">What Drives Me</h3>
           </motion.div>
           <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
@@ -424,9 +434,9 @@ export default function App() {
         <section id="goal" className="py-32 px-6 md:px-12 lg:px-24 flex flex-col items-center justify-center text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="relative">
             <div className="absolute inset-0 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
-            <h2 className="text-sm font-mono text-emerald-400 tracking-[0.4em] uppercase mb-8 drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">08. My Goal</h2>
+            <h2 className="text-sm font-mono text-emerald-400 tracking-[0.4em] uppercase mb-8 drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">My Goal</h2>
             <p className="text-5xl md:text-6xl lg:text-7xl font-serif font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-400 leading-tight drop-shadow-[0_0_30px_rgba(16,185,129,0.3)] max-w-5xl mx-auto">
-              "Become a top 1% AI/ML engineer by 2028."
+              "MY GOAL IS TO BUILD MEANINGFUL SOFTWARE, MASTER ARTIFICIAL INTELLIGENCE, AND ENGINEER SYSTEMS THAT SOLVE REAL-WORLD PROBLEMS."
             </p>
           </motion.div>
         </section>
@@ -600,7 +610,7 @@ function TimelineNode({ item, index, setIsHovering }) {
   );
 }
 
-function ProjectCard({ project, index, setIsHovering }) {
+function ProjectCard({ project, index, setIsHovering, setSelectedProject }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
