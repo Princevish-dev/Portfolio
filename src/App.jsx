@@ -322,7 +322,7 @@ export default function App() {
 
         {/* --- SECTION 2: MY EDUCATION --- */}
         <section id="education" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
             <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">My Education</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Academic Foundation</h3>
           </motion.div>
@@ -331,7 +331,7 @@ export default function App() {
             <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
               <div>
                 <h4 className="text-3xl font-serif font-bold text-white mb-2">B.Tech in Computer Science</h4>
-                <p className="text-xl text-slate-400 font-light mb-6">2nd Year (3rd Semester) at LPU</p>
+                <p className="text-xl text-slate-400 font-light mb-6">2nd Year (3rd Semester) at Lovely Professional University</p>
                 <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 font-mono text-sm shadow-[0_0_15px_rgba(79,70,229,0.2)]">
                   <FaGraduationCap className="w-5 h-5" /> CGPA: 7.16/10
                 </div>
@@ -347,7 +347,7 @@ export default function App() {
 
         {/* --- SECTION 3: MY SKILLS --- */}
         <section id="skills" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-right">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
             <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">My Skills</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Core Competencies</h3>
           </motion.div>
@@ -372,7 +372,7 @@ export default function App() {
 
         {/* --- SECTION 4: MY INTERNSHIP EXPERIENCE --- */}
         <section id="experience" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
             <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">My Internship Experience</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Professional Journey</h3>
           </motion.div>
@@ -393,7 +393,7 @@ export default function App() {
 
         {/* --- SECTION 5: MY PROJECT --- */}
         <section id="projects" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-right">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
             <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">My Project</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Featured Work</h3>
           </motion.div>
@@ -404,7 +404,7 @@ export default function App() {
 
         {/* --- SECTION 6: MY ACHIEVEMENTS --- */}
         <section id="achievements" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
             <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">My Achievements</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Milestones</h3>
           </motion.div>
@@ -435,8 +435,8 @@ export default function App() {
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="relative">
             <div className="absolute inset-0 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
             <h2 className="text-sm font-mono text-emerald-400 tracking-[0.4em] uppercase mb-8 drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">My Goal</h2>
-            <p className="text-5xl md:text-6xl lg:text-7xl font-serif font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-400 leading-tight drop-shadow-[0_0_30px_rgba(16,185,129,0.3)] max-w-5xl mx-auto">
-              "ARCHITECT INTELLIGENT MULTI-AGENT ECOSYSTEMS BLENDING NLP AND COMPUTER VISION. BRIDGE THE GAP BETWEEN THEORETICAL AI AND REAL-WORLD IMPACT."
+            <p className="text-3xl md:text-4xl lg:text-5xl font-serif font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-400 leading-tight drop-shadow-[0_0_30px_rgba(16,185,129,0.3)] max-w-4xl mx-auto">
+              "ARCHITECT MULTI-AGENT ECOSYSTEMS AND BRIDGE THE GAP BETWEEN THEORETICAL AI AND REAL-WORLD IMPACT."
             </p>
           </motion.div>
         </section>
