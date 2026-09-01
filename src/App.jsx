@@ -310,6 +310,7 @@ export default function App() {
                 <div className="relative z-10 w-full h-full rounded-full lg:rounded-[2.6rem] overflow-hidden border border-white/10">
                   <img 
                     src="/profile.jpg" 
+                    onError={(e) => { e.target.onerror = null; e.target.src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400"; }}
                     alt="Prince Vishwakarma" 
                     className="w-full h-full object-cover filter grayscale-[15%] group-hover:grayscale-0 transition-all duration-700 hover:scale-105"
                   />
