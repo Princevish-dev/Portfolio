@@ -21,6 +21,7 @@ const PROJECTS = [
     title: "KrishiVani",
     tag: "Multimodal AI",
     impact: "Bridging speech and translation pipelines using Gemini Vision and Bhashini.",
+    image: "https://images.unsplash.com/photo-1586772002130-b0f3daa6288b?q=80&w=800&auto=format&fit=crop",
     icon: <FiMessageSquare className="w-8 h-8 text-indigo-400" />,
     gradient: "from-indigo-500/20 via-indigo-500/5 to-transparent",
     borderGlow: "group-hover:border-indigo-500/50 group-hover:shadow-[0_0_30px_rgba(79,70,229,0.2)]",
@@ -30,6 +31,7 @@ const PROJECTS = [
     title: "Agent Saathi",
     tag: "Multi-Agent Framework",
     impact: "A modular multi-agent system implementing 15 ADK concepts for emotional support, study planning, and community impact.",
+    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=800&auto=format&fit=crop",
     icon: <FiCpu className="w-8 h-8 text-cyan-400" />,
     gradient: "from-cyan-500/20 via-cyan-500/5 to-transparent",
     borderGlow: "group-hover:border-cyan-500/50 group-hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]",
@@ -205,8 +207,7 @@ export default function App() {
             {['Education', 'Skills', 'Projects', 'Contact'].map((item) => (
               <a 
                 key={item} 
-                href={`#${item.toLowerCase()}`} 
-                onMouseEnter={() => setIsHovering(true)}
+                href={`#${item.toLowerCase()}`} onClick={(e) => { e.preventDefault(); document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: \'smooth\' }); }} onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
                 className="px-6 py-2.5 rounded-xl text-sm font-mono text-slate-300 hover:text-white hover:bg-white/[0.05] transition-all duration-300 relative group overflow-hidden"
               >
@@ -275,8 +276,7 @@ export default function App() {
                 className="flex flex-wrap gap-6 pt-6"
               >
                 <a 
-                  href="#projects" 
-                  onMouseEnter={() => setIsHovering(true)}
+                  href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById(\'projects\')?.scrollIntoView({ behavior: \'smooth\' }); }} onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                   className="relative group px-10 py-5 rounded-2xl bg-indigo-600 text-white font-medium overflow-hidden shadow-[0_10px_40px_-10px_rgba(79,70,229,0.8)]"
                 >
