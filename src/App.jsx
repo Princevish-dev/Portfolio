@@ -10,6 +10,7 @@ import { HiPaperAirplane } from 'react-icons/hi2';
 const socialLinks = [
   { name: 'GitHub', icon: FaGithub, url: 'https://github.com/Princevish-dev', color: '#f1f5f9' },
   { name: 'LinkedIn', icon: FaLinkedin, url: 'https://www.linkedin.com/in/prince-vishwakarma405', color: '#0a66c2' },
+  { name: 'Unstop', icon: FiAward, url: 'https://unstop.com/u/princvis42903', color: '#f59e0b' },
   { name: 'Email', icon: HiOutlineMail, url: 'mailto:princevishwakarma405@gmail.com', color: '#06b6d4' },
   { name: 'Instagram', icon: FaInstagram, url: 'https://www.instagram.com/prv.405/', color: '#e1306c' },
 ];
