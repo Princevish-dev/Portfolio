@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence, useSpring } from 'framer-motion';
-import { FiArrowRight, FiCode, FiCpu, FiDatabase, FiLayers, FiMessageSquare, FiTerminal, FiChevronDown, FiCommand, FiActivity } from 'react-icons/fi';
+import { FiArrowRight, FiCode, FiCpu, FiDatabase, FiLayers, FiMessageSquare, FiTerminal, FiChevronDown, FiCommand, FiActivity, FiAward, FiTarget, FiStar, FiCheckCircle } from 'react-icons/fi';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial, Sphere, Stars, PerspectiveCamera } from '@react-three/drei';
-import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
-import { HiOutlineMail } from 'react-icons/hi';
+import { FaGithub, FaLinkedin, FaInstagram, FaGraduationCap } from 'react-icons/fa';
+import { HiOutlineMail, HiOutlineBriefcase } from 'react-icons/hi';
 import { HiPaperAirplane } from 'react-icons/hi2';
 
 const socialLinks = [
@@ -34,15 +34,6 @@ const PROJECTS = [
     gradient: "from-cyan-500/20 via-cyan-500/5 to-transparent",
     borderGlow: "group-hover:border-cyan-500/50 group-hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]",
     link: "https://github.com/Princevish-dev/agent-saathi",
-  },
-  {
-    title: "Project AntiGrav",
-    tag: "Agentic Control",
-    impact: "Levitation control system via state observation and adaptive feedback loops in C++.",
-    icon: <FiLayers className="w-8 h-8 text-emerald-400" />,
-    gradient: "from-emerald-500/20 via-emerald-500/5 to-transparent",
-    borderGlow: "group-hover:border-emerald-500/50 group-hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]",
-    link: "https://github.com/Princevish-dev/Portfolio",
   },
   {
     title: "GrowthOS",
@@ -210,7 +201,7 @@ export default function App() {
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
             className="fixed top-8 left-1/2 -translate-x-1/2 z-40 px-2 py-2 rounded-2xl bg-[#05050A]/60 backdrop-blur-2xl border border-white/[0.08] shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] hidden md:flex items-center gap-1"
           >
-            {['Home', 'Path', 'Architectures', 'Contact'].map((item) => (
+            {['Education', 'Skills', 'Projects', 'Contact'].map((item) => (
               <a 
                 key={item} 
                 href={`#${item.toLowerCase()}`} 
@@ -328,124 +319,117 @@ export default function App() {
           </motion.div>
         </section>
 
-        {/* --- SECTION 2: INTERACTIVE TIMELINE --- */}
-        <section id="timeline" className="py-40 px-6 md:px-12 lg:px-24">
-          <div className="max-w-6xl mx-auto">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-32"
-            >
-              <h2 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 tracking-tight">The Builder's Path</h2>
-              <p className="text-indigo-400 font-mono text-sm tracking-[0.3em] uppercase drop-shadow-[0_0_10px_rgba(79,70,229,0.5)]">Chronicles of Logic & Architecture</p>
-            </motion.div>
-
-            <div className="relative">
-              {/* Glowing Line */}
-              <div className="absolute left-[31px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-white/[0.1] to-transparent md:-translate-x-1/2 rounded-full" />
-              
-              <div className="space-y-32">
-                {TIMELINE.map((item, i) => (
-                  <TimelineNode key={i} item={item} index={i} setIsHovering={setIsHovering} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* --- SECTION 3: CASE STUDY GRID --- */}
-        <section id="projects" className="py-40 px-6 md:px-12 lg:px-24 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-indigo-900/[0.02] to-cyan-900/[0.02] border-y border-white/[0.02]" />
-          <div className="max-w-7xl mx-auto relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-24"
-            >
-              <div>
-                <h2 className="text-5xl md:text-7xl font-serif font-bold text-white tracking-tight mb-4">Featured<br />Architectures</h2>
-                <p className="text-cyan-400 font-mono text-sm tracking-[0.3em] uppercase drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">Systems Built for Scale</p>
-              </div>
-              <div className="flex gap-4 p-2 rounded-2xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-xl">
-                <button className="px-6 py-2.5 rounded-xl bg-indigo-500/20 text-indigo-300 font-mono text-sm border border-indigo-500/30 shadow-[0_0_15px_rgba(79,70,229,0.2)]">All</button>
-                <button className="px-6 py-2.5 rounded-xl text-slate-400 hover:text-white font-mono text-sm hover:bg-white/[0.05] transition-colors">AI/ML</button>
-                <button className="px-6 py-2.5 rounded-xl text-slate-400 hover:text-white font-mono text-sm hover:bg-white/[0.05] transition-colors">Systems</button>
-              </div>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {PROJECTS.map((project, i) => (
-                <ProjectCard key={i} project={project} index={i} setIsHovering={setIsHovering} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* --- SECTION 4: DEEP DIVE --- */}
-        <section className="py-40 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-24"
-          >
-            <h2 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 tracking-tight">
-              Deep Dive: <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-emerald-400">KrishiVani</span>
-            </h2>
-            <p className="text-xl text-slate-400 max-w-3xl font-light leading-relaxed">An architectural dissection of bridging native speech with LLM multimodal pipelines.</p>
+        {/* --- SECTION 2: MY EDUCATION --- */}
+        <section id="education" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
+            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">02. My Education</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Academic Foundation</h3>
           </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-            {/* Mock IDE Window - Core Logic */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="rounded-3xl bg-[#030305]/80 backdrop-blur-xl border border-white/[0.1] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col group hover:border-white/[0.2] transition-colors duration-500"
-            >
-              <div className="px-6 py-5 border-b border-white/[0.05] flex items-center justify-between bg-white/[0.02]">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-3.5 h-3.5 rounded-full bg-rose-500/90 shadow-[0_0_10px_rgba(244,63,94,0.5)]" />
-                  <div className="w-3.5 h-3.5 rounded-full bg-amber-500/90 shadow-[0_0_10px_rgba(245,158,11,0.5)]" />
-                  <div className="w-3.5 h-3.5 rounded-full bg-emerald-500/90 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.05] shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden group hover:border-white/[0.1] transition-all duration-500">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+              <div>
+                <h4 className="text-3xl font-serif font-bold text-white mb-2">B.Tech Engineering</h4>
+                <p className="text-xl text-slate-400 font-light mb-6">Lovely Professional University</p>
+                <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 font-mono text-sm shadow-[0_0_15px_rgba(79,70,229,0.2)]">
+                  <FaGraduationCap className="w-5 h-5" /> CGPA: 8.7/10
                 </div>
-                <span className="font-mono text-xs text-slate-400 flex items-center gap-2 bg-white/[0.05] px-3 py-1 rounded-md"><FiTerminal className="text-indigo-400" /> core_logic.rs</span>
               </div>
-              <div className="p-10 text-slate-300 leading-relaxed font-light text-lg flex-1">
-                KrishiVani represents a paradigm shift in rural communication interfaces. By bridging native speech input with <span className="text-cyan-400 font-medium drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]">Gemini's vision-language</span> multimodal capabilities and <span className="text-indigo-400 font-medium drop-shadow-[0_0_8px_rgba(79,70,229,0.5)]">Bhashini's</span> robust translation layer, the system abstracts extreme complexity behind a singular, resilient API endpoint.
+              <div className="hidden md:block w-32 h-32 relative">
+                <div className="absolute inset-0 border-[4px] border-cyan-400/30 rounded-full animate-[spin_10s_linear_infinite]" />
+                <div className="absolute inset-2 border-[2px] border-indigo-500/40 rounded-full animate-[spin_7s_linear_infinite_reverse]" />
+                <div className="absolute inset-0 flex items-center justify-center text-5xl">🎓</div>
               </div>
-            </motion.div>
-            
-            {/* Mock IDE Window - Implementation */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="rounded-3xl bg-[#030305]/80 backdrop-blur-xl border border-white/[0.1] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col group hover:border-white/[0.2] transition-colors duration-500"
-            >
-              <div className="px-6 py-5 border-b border-white/[0.05] flex items-center justify-between bg-white/[0.02]">
-                <div className="flex items-center gap-2.5 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all">
-                  <div className="w-3.5 h-3.5 rounded-full bg-rose-500/90" />
-                  <div className="w-3.5 h-3.5 rounded-full bg-amber-500/90" />
-                  <div className="w-3.5 h-3.5 rounded-full bg-emerald-500/90" />
-                </div>
-                <span className="font-mono text-xs text-slate-400 flex items-center gap-2 bg-white/[0.05] px-3 py-1 rounded-md"><FiCode className="text-emerald-400" /> implementation.ts</span>
-              </div>
-              <div className="p-10 text-slate-300 leading-relaxed font-light text-lg flex-1">
-                Architected with failure in mind. Features asynchronous task queues, automatic retry mechanisms for LLM hallucinations, and a fallback tree that degrades gracefully under high latency—all while maintaining a highly coherent contextual memory for the end-user session.
-              </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
+        </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
-            <Metric title="100%" subtitle="Paper-Tested Logic" />
-            <Metric title="900+" subtitle="LeetCode Hours" delay={0.1} />
-            <Metric title="∞" subtitle="Infinite Optimization" delay={0.2} />
+        {/* --- SECTION 3: MY SKILLS --- */}
+        <section id="skills" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-right">
+            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">03. My Skills</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Core Competencies</h3>
+          </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {[{name: "Communication", icon: <FiMessageSquare/>}, {name: "Public Speaking", icon: <FiAward/>}, {name: "Creative Writing", icon: <FiCode/>}, {name: "Team Collaboration", icon: <FiLayers/>}, {name: "MS Office", icon: <FiDatabase/>}].map((skill, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="p-6 rounded-3xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.08] hover:border-cyan-500/30 transition-all duration-500 flex flex-col items-center justify-center text-center gap-4 group hover:-translate-y-2 shadow-[0_0_30px_rgba(0,0,0,0.3)]">
+                <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-400/20 group-hover:border-cyan-400/50 transition-all duration-500 shadow-lg">{skill.icon}</div>
+                <span className="font-mono text-xs text-slate-300 tracking-wider uppercase">{skill.name}</span>
+              </motion.div>
+            ))}
           </div>
         </section>
 
+        {/* --- SECTION 4: MY INTERNSHIP EXPERIENCE --- */}
+        <section id="experience" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
+            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">04. My Internship Experience</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Professional Journey</h3>
+          </motion.div>
+          <div className="relative pl-8 md:pl-0 mt-20">
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/50 via-cyan-400/20 to-transparent -translate-x-1/2" />
+            <TimelineNode 
+              item={{ 
+                title: "Content Writing Intern", 
+                subtitle: "Bright Minds Media", 
+                content: "Delivered high-quality content, enhanced communication strategies, and collaborated with cross-functional teams to drive brand engagement.",
+                icon: <HiOutlineBriefcase className="w-6 h-6 text-indigo-400" />
+              }} 
+              index={0} 
+              setIsHovering={setIsHovering} 
+            />
+          </div>
+        </section>
+
+        {/* --- SECTION 5: MY PROJECT --- */}
+        <section id="projects" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-right">
+            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">05. My Project</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Featured Work</h3>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {PROJECTS.map((p, i) => <ProjectCard key={i} project={p} index={i} setIsHovering={setIsHovering} />)}
+          </div>
+        </section>
+
+        {/* --- SECTION 6: MY ACHIEVEMENTS --- */}
+        <section id="achievements" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
+            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">06. My Achievements</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Milestones</h3>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Metric title="2023" subtitle="Dean's List" delay={0} />
+            <Metric title="1st" subtitle="Extempore Winner" delay={0.1} />
+            <Metric title="NSS" subtitle="Active Volunteer" delay={0.2} />
+          </div>
+        </section>
+
+        {/* --- SECTION 7: MY STRENGTHS --- */}
+        <section id="strengths" className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
+            <h2 className="text-sm font-mono text-cyan-400 tracking-[0.3em] uppercase mb-4">07. My Strengths</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">What Drives Me</h3>
+          </motion.div>
+          <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
+            {["Adaptable", "Quick Learner", "Positive Attitude", "Problem Solver"].map((strength, i) => (
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.15, type: "spring" }} viewport={{ once: true }} className="px-10 py-5 rounded-full bg-white/[0.02] border border-white/[0.08] backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-cyan-400/50 hover:bg-white/[0.05] hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(34,211,238,0.2)] transition-all duration-500 cursor-default">
+                <span className="font-mono text-lg text-slate-300 tracking-wider">{strength}</span>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* --- SECTION 8: MY GOAL --- */}
+        <section id="goal" className="py-32 px-6 md:px-12 lg:px-24 flex flex-col items-center justify-center text-center relative z-10">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="relative">
+            <div className="absolute inset-0 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
+            <h2 className="text-sm font-mono text-emerald-400 tracking-[0.4em] uppercase mb-8 drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">08. My Goal</h2>
+            <p className="text-5xl md:text-6xl lg:text-7xl font-serif font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-400 leading-tight drop-shadow-[0_0_30px_rgba(16,185,129,0.3)] max-w-5xl mx-auto">
+              "Become a top 1% AI/ML engineer by 2028."
+            </p>
+          </motion.div>
+        </section>
         {/* --- FOOTER CTA --- */}
         <section id="contact" className="relative py-24 sm:py-32 overflow-hidden mt-20">
           <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/10 to-transparent pointer-events-none" />
