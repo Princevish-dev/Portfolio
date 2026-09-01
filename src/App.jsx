@@ -14,7 +14,7 @@ const socialLinks = [
   { name: 'Instagram', icon: FaInstagram, url: 'https://www.instagram.com/prv.405/', color: '#e1306c' },
 ];
 
-const ROLES = ["AI/ML Engineer", "Multi-Agent Systems Architect", "Systems Builder"];
+const ROLES = ["AI/ML Engineer", "Multi-Agent Systems Architect", "Optimization Enthusiast"];
 
 const PROJECTS = [
   {
@@ -330,8 +330,8 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
               <div>
-                <h4 className="text-3xl font-serif font-bold text-white mb-2">B.Tech Engineering</h4>
-                <p className="text-xl text-slate-400 font-light mb-6">Lovely Professional University</p>
+                <h4 className="text-3xl font-serif font-bold text-white mb-2">B.Tech in Computer Science</h4>
+                <p className="text-xl text-slate-400 font-light mb-6">2nd Year (3rd Semester) at LPU</p>
                 <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 font-mono text-sm shadow-[0_0_15px_rgba(79,70,229,0.2)]">
                   <FaGraduationCap className="w-5 h-5" /> CGPA: 7.16/10
                 </div>
@@ -353,11 +353,11 @@ export default function App() {
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {[
-              {name: "Communication", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400&auto=format&fit=crop"}, 
-              {name: "Public Speaking", img: "https://images.unsplash.com/photo-1475721028314-3905f1725c63?q=80&w=400&auto=format&fit=crop"}, 
-              {name: "Creative Writing", img: "https://images.unsplash.com/photo-1455390582262-044cdead2708?q=80&w=400&auto=format&fit=crop"}, 
-              {name: "Collaboration", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=400&auto=format&fit=crop"}, 
-              {name: "Tech & MS Office", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=400&auto=format&fit=crop"}
+              {name: "Python & C++", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=400&auto=format&fit=crop"}, 
+              {name: "Gemini AI & Nemotron", img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=400&auto=format&fit=crop"}, 
+              {name: "Agent Development Kit", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=400&auto=format&fit=crop"}, 
+              {name: "Streamlit & Docker", img: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=400&auto=format&fit=crop"}, 
+              {name: "DSA & Optimization", img: "https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=400&auto=format&fit=crop"}
             ].map((skill, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="relative h-40 rounded-3xl bg-white/[0.02] border border-white/[0.05] overflow-hidden group hover:-translate-y-2 shadow-[0_0_30px_rgba(0,0,0,0.3)] transition-all duration-500">
                 <img src={skill.img} alt={skill.name} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-70 group-hover:scale-110 transition-all duration-700 mix-blend-overlay grayscale group-hover:grayscale-0" />
@@ -380,10 +380,10 @@ export default function App() {
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/50 via-cyan-400/20 to-transparent -translate-x-1/2" />
             <TimelineNode 
               item={{ 
-                title: "Software Engineering Intern", 
-                subtitle: "Your Next Company", 
-                content: "Actively seeking opportunities to build robust systems, optimize backend architectures, and implement scalable machine learning models.",
-                icon: <HiOutlineBriefcase className="w-6 h-6 text-indigo-400" />
+                title: "Open Source Contributor & Builder", 
+                subtitle: "GSSoC & EngageEarth", 
+                content: "Actively contributing to open-source through GSSoC while architecting EngageEarth, a sustainability-focused digital impact platform bridging technology with real-world issues.",
+                icon: <FiCode className="w-6 h-6 text-indigo-400" />
               }} 
               index={0} 
               setIsHovering={setIsHovering} 
@@ -409,9 +409,9 @@ export default function App() {
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Milestones</h3>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Metric title="500+" subtitle="GitHub Contributions" delay={0} />
-            <Metric title="1st" subtitle="Hackathon Excellence" delay={0.1} />
-            <Metric title="OSS" subtitle="Open Source Contributor" delay={0.2} />
+            <Metric title="Active" subtitle="GSSoC Contributor" delay={0} />
+            <Metric title="Mastery" subtitle="DSA Optimization" delay={0.1} />
+            <Metric title="Logical" subtitle="First-Principles" delay={0.2} />
           </div>
         </section>
 
@@ -422,7 +422,7 @@ export default function App() {
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">What Drives Me</h3>
           </motion.div>
           <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-            {["Adaptable", "Quick Learner", "Positive Attitude", "Problem Solver"].map((strength, i) => (
+            {["Extreme Optimization", "First-Principles", "Builder Mindset", "Precision & Efficiency"].map((strength, i) => (
               <motion.div key={i} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.15, type: "spring" }} viewport={{ once: true }} className="px-10 py-5 rounded-full bg-white/[0.02] border border-white/[0.08] backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-cyan-400/50 hover:bg-white/[0.05] hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(34,211,238,0.2)] transition-all duration-500 cursor-default">
                 <span className="font-mono text-lg text-slate-300 tracking-wider">{strength}</span>
               </motion.div>
@@ -436,7 +436,7 @@ export default function App() {
             <div className="absolute inset-0 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
             <h2 className="text-sm font-mono text-emerald-400 tracking-[0.4em] uppercase mb-8 drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">My Goal</h2>
             <p className="text-5xl md:text-6xl lg:text-7xl font-serif font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-400 leading-tight drop-shadow-[0_0_30px_rgba(16,185,129,0.3)] max-w-5xl mx-auto">
-              "MY GOAL IS TO BUILD MEANINGFUL SOFTWARE, MASTER ARTIFICIAL INTELLIGENCE, AND ENGINEER SYSTEMS THAT SOLVE REAL-WORLD PROBLEMS."
+              "ARCHITECT INTELLIGENT MULTI-AGENT ECOSYSTEMS BLENDING NLP AND COMPUTER VISION. BRIDGE THE GAP BETWEEN THEORETICAL AI AND REAL-WORLD IMPACT."
             </p>
           </motion.div>
         </section>
