@@ -24,14 +24,16 @@ const PROJECTS = [
     icon: <FiMessageSquare className="w-8 h-8 text-indigo-400" />,
     gradient: "from-indigo-500/20 via-indigo-500/5 to-transparent",
     borderGlow: "group-hover:border-indigo-500/50 group-hover:shadow-[0_0_30px_rgba(79,70,229,0.2)]",
+    link: "https://github.com/Princevish-dev/Portfolio",
   },
   {
     title: "Agent Saathi",
     tag: "Multi-Agent Framework",
-    impact: "Bringing emotional memory banks and agent-to-agent protocols to life via 15 ADK concepts.",
+    impact: "A modular multi-agent system implementing 15 ADK concepts for emotional support, study planning, and community impact.",
     icon: <FiCpu className="w-8 h-8 text-cyan-400" />,
     gradient: "from-cyan-500/20 via-cyan-500/5 to-transparent",
     borderGlow: "group-hover:border-cyan-500/50 group-hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]",
+    link: "https://github.com/Princevish-dev/agent-saathi",
   },
   {
     title: "Project AntiGrav",
@@ -40,14 +42,16 @@ const PROJECTS = [
     icon: <FiLayers className="w-8 h-8 text-emerald-400" />,
     gradient: "from-emerald-500/20 via-emerald-500/5 to-transparent",
     borderGlow: "group-hover:border-emerald-500/50 group-hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]",
+    link: "https://github.com/Princevish-dev/Portfolio",
   },
   {
     title: "GrowthOS",
     tag: "AI Marketing Suite",
-    impact: "Execution-driven NLP sentiment analysis and content repurposing built on Streamlit.",
+    impact: "An end-to-end, execution-driven marketing automation platform built on Streamlit & Gemini AI for content repurposing and ad optimization.",
     icon: <FiDatabase className="w-8 h-8 text-purple-400" />,
     gradient: "from-purple-500/20 via-purple-500/5 to-transparent",
     borderGlow: "group-hover:border-purple-500/50 group-hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]",
+    link: "https://github.com/Princevish-dev/ai-for-marketers-hackathon-vishwak",
   }
 ];
 
@@ -646,12 +650,24 @@ function ProjectCard({ project, index, setIsHovering }) {
         <p className="text-slate-400 text-lg leading-relaxed mb-12 flex-1 font-light">{project.impact}</p>
         
         <div className="overflow-hidden mt-auto">
-          <motion.button 
-            whileHover={{ x: 8 }}
-            className="text-white font-mono text-sm flex items-center gap-4 group/btn px-8 py-4 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300 w-fit"
-          >
-            View Architecture <FiArrowRight className="text-indigo-400 group-hover/btn:translate-x-2 transition-transform w-5 h-5" />
-          </motion.button>
+          {project.link ? (
+            <motion.a 
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ x: 8 }}
+              className="text-white font-mono text-sm flex items-center gap-4 group/btn px-8 py-4 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300 w-fit"
+            >
+              View Repository <FiArrowRight className="text-indigo-400 group-hover/btn:translate-x-2 transition-transform w-5 h-5" />
+            </motion.a>
+          ) : (
+            <motion.button 
+              whileHover={{ x: 8 }}
+              className="text-white font-mono text-sm flex items-center gap-4 group/btn px-8 py-4 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300 w-fit"
+            >
+              View Architecture <FiArrowRight className="text-indigo-400 group-hover/btn:translate-x-2 transition-transform w-5 h-5" />
+            </motion.button>
+          )}
         </div>
       </div>
     </motion.div>
