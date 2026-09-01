@@ -207,7 +207,7 @@ export default function App() {
             {['Education', 'Skills', 'Projects', 'Contact'].map((item) => (
               <a 
                 key={item} 
-                href={`#${item.toLowerCase()}`} onClick={(e) => { e.preventDefault(); document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: \'smooth\' }); }} onMouseEnter={() => setIsHovering(true)}
+                href={`#${item.toLowerCase()}`} onClick={(e) => { e.preventDefault(); document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' }); }} onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
                 className="px-6 py-2.5 rounded-xl text-sm font-mono text-slate-300 hover:text-white hover:bg-white/[0.05] transition-all duration-300 relative group overflow-hidden"
               >
@@ -276,7 +276,7 @@ export default function App() {
                 className="flex flex-wrap gap-6 pt-6"
               >
                 <a 
-                  href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById(\'projects\')?.scrollIntoView({ behavior: \'smooth\' }); }} onMouseEnter={() => setIsHovering(true)}
+                  href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
                   className="relative group px-10 py-5 rounded-2xl bg-indigo-600 text-white font-medium overflow-hidden shadow-[0_10px_40px_-10px_rgba(79,70,229,0.8)]"
                 >
