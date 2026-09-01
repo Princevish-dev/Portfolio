@@ -24,7 +24,7 @@ const PROJECTS = [
     icon: <FiMessageSquare className="w-8 h-8 text-indigo-400" />,
     gradient: "from-indigo-500/20 via-indigo-500/5 to-transparent",
     borderGlow: "group-hover:border-indigo-500/50 group-hover:shadow-[0_0_30px_rgba(79,70,229,0.2)]",
-    link: "https://github.com/Princevish-dev/Portfolio",
+    link: "https://github.com/Princevish-dev/KrishiVani",
   },
   {
     title: "Agent Saathi",
@@ -360,7 +360,7 @@ export default function App() {
               {name: "DSA & Optimization", img: "https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=400&auto=format&fit=crop"}
             ].map((skill, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="relative h-40 rounded-3xl bg-white/[0.02] border border-white/[0.05] overflow-hidden group hover:-translate-y-2 shadow-[0_0_30px_rgba(0,0,0,0.3)] transition-all duration-500">
-                <img src={skill.img} alt={skill.name} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-70 group-hover:scale-110 transition-all duration-700 mix-blend-overlay grayscale group-hover:grayscale-0" />
+                <img src={skill.img} alt={skill.name} className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700 grayscale group-hover:grayscale-0" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#05050A] via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-0 right-0 text-center">
                   <span className="font-mono text-xs text-slate-200 tracking-wider uppercase font-bold drop-shadow-md">{skill.name}</span>
