@@ -21,6 +21,36 @@ const PROJECTS = [
     title: "KrishiVani",
     tag: "Multimodal AI",
     impact: "Bridging speech and translation pipelines using Gemini Vision and Bhashini.",
+    details: (
+      <div className="space-y-6 text-slate-300 text-sm md:text-base leading-relaxed">
+        <p><strong className="text-white text-lg">KrishiVani: AI for Bharat Hackathon 2026 🌾</strong><br/><br/>KrishiVani is a multimodal agronomy advisory agent built for the modern Indian farmer. It seamlessly bridges the gap between advanced AI capabilities (Google Gemini Vision & Bhashini Speech Translation) and accessible edge interfaces (WhatsApp).</p>
+        
+        <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
+          <h4 className="text-white font-bold text-xl mb-4">🏆 Hackathon Evaluation Criteria</h4>
+          
+          <h5 className="text-cyan-400 font-semibold mt-6 mb-2">1. Technical Implementation</h5>
+          <p>Engineered using the Antigravity ADK (Agent Development Kit). By leveraging a spec-driven agent architecture, the system is highly modular, secure, and predictable.</p>
+          <ul className="list-disc pl-5 space-y-2 mt-3 text-slate-400">
+            <li><strong className="text-slate-300">Orchestration:</strong> The KrishiVaniAgent relies on a strongly-typed Pydantic KrishiVaniSpec. It acts as the central brain, determining when to trigger Vision or Speech services based on Twilio webhooks.</li>
+            <li><strong className="text-slate-300">Microservices:</strong> AI endpoints (Gemini Vision, Bhashini) are isolated into dedicated classes, ensuring decoupled testing.</li>
+          </ul>
+
+          <h5 className="text-cyan-400 font-semibold mt-8 mb-2">2. Innovation</h5>
+          <p>The true innovation lies in the Multimodal WhatsApp Flow. Farmers do not need to download a new app.</p>
+          <ul className="list-disc pl-5 space-y-2 mt-3 text-slate-400">
+            <li><strong className="text-slate-300">Voice/Text:</strong> Farmers can send regional audio or text. Mocks Bhashini integration translates this natively to English.</li>
+            <li><strong className="text-slate-300">Image:</strong> Snap a photo of a diseased crop leaf. KrishiVani fetches this in-memory and streams it to Google Gemini 1.5 Flash Vision to identify, diagnose, and provide remedies in seconds.</li>
+          </ul>
+
+          <h5 className="text-cyan-400 font-semibold mt-8 mb-2">3. Feasibility & Scalability</h5>
+          <p>Designed for massive scale with a minimal footprint.</p>
+          <ul className="list-disc pl-5 space-y-2 mt-3 text-slate-400">
+            <li><strong className="text-slate-300">Lightweight Endpoints:</strong> Built on FastAPI, instantly acknowledges receipt to Twilio to prevent timeouts, processing LLM tasks asynchronously.</li>
+            <li><strong className="text-slate-300">Serverless Scaling:</strong> Stateless design means effortless deployment to AWS Lambda, Google Cloud Run, or Vercel.</li>
+          </ul>
+        </div>
+      </div>
+    ),
     image: "https://images.unsplash.com/photo-1586772002130-b0f3daa6288b?q=80&w=800&auto=format&fit=crop",
     icon: <FiMessageSquare className="w-8 h-8 text-indigo-400" />,
     gradient: "from-indigo-500/20 via-indigo-500/5 to-transparent",
