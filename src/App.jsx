@@ -297,9 +297,36 @@ export default function App() {
               </motion.div>
             </div>
 
-            {/* Right Content: 3D Interactive Scene via R3F */}
-            <div className="flex-1 w-full flex items-center justify-center lg:justify-end">
-              <ThreeDHeroScene setIsHovering={setIsHovering} />
+            {/* Right Content: Professional Profile Picture */}
+            <div className="flex-1 w-full flex items-center justify-center lg:justify-end mt-12 lg:mt-0">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8, rotate: -3 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ duration: 1.2, type: "spring", bounce: 0.4 }}
+                className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[380px] lg:h-[440px] rounded-full lg:rounded-[3rem] p-2 bg-gradient-to-tr from-indigo-500/30 to-cyan-400/30 shadow-[0_0_50px_rgba(34,211,238,0.15)] group"
+              >
+                <div className="absolute inset-0 bg-[#05050A]/40 backdrop-blur-md z-0 rounded-full lg:rounded-[2.8rem]" />
+                
+                <div className="relative z-10 w-full h-full rounded-full lg:rounded-[2.6rem] overflow-hidden border border-white/10">
+                  <img 
+                    src="/profile.jpg" 
+                    alt="Prince Vishwakarma" 
+                    className="w-full h-full object-cover filter grayscale-[15%] group-hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#05050A] via-[#05050A]/20 to-transparent opacity-80" />
+                </div>
+                
+                {/* Floating Badge */}
+                <motion.div 
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.8 }}
+                  className="absolute bottom-4 lg:bottom-8 right-0 lg:-right-6 z-20 px-5 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-xl flex items-center gap-3"
+                >
+                  <div className="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse shadow-[0_0_10px_#34d399]" />
+                  <span className="font-mono text-xs lg:text-sm text-white font-bold tracking-wider">Available for Work</span>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
 
