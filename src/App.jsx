@@ -108,6 +108,38 @@ const PROJECTS = [
     title: "GrowthOS",
     tag: "AI Marketing Suite",
     impact: "An end-to-end, execution-driven marketing automation platform built on Streamlit & Gemini AI for content repurposing and ad optimization.",
+    details: (
+      <div className="space-y-6 text-slate-300 text-sm md:text-base leading-relaxed">
+        <p><strong className="text-white text-lg">GROWTHOS: The Ultimate AI Marketing Suite</strong><br/><br/>Built for the AI for Marketers Hackathon 🏆<br/><br/>GrowthOS is an end-to-end, execution-driven marketing automation platform. It transforms how businesses generate content, optimize ads, and analyze competitors—all powered by Google Gemini AI. GrowthOS focuses on real business outcomes, automated workflows, and measurable ROI.</p>
+        
+        <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
+          <h4 className="text-white font-bold text-xl mb-4">🔥 Why GrowthOS?</h4>
+          <ul className="list-disc pl-5 space-y-2 mt-3 text-slate-400">
+            <li><strong className="text-slate-300">AI Content Engine:</strong> Repurpose a single blog post into dozens of viral Twitter, LinkedIn, Instagram, and Newsletter assets instantly.</li>
+            <li><strong className="text-slate-300">AI Ads Optimization:</strong> Automatically generate high-converting Google, Facebook, and Instagram ad copy alongside a Live HTML Landing Page.</li>
+            <li><strong className="text-slate-300">Customer Insights:</strong> Scrape competitor weaknesses and sentiment, then feed those insights directly into your content generation workflow.</li>
+            <li><strong className="text-slate-300">ROI & Analytics Dashboard:</strong> A unified dashboard that calculates exact hours and money saved (ROI) for your team, proving measurable impact.</li>
+          </ul>
+
+          <h5 className="text-cyan-400 font-semibold mt-8 mb-2">⚙️ Features & Interconnected Workflows</h5>
+          <ul className="list-disc pl-5 space-y-3 mt-3 text-slate-400">
+            <li><strong className="text-slate-300">1. ✍️ Content Repurposer:</strong> Turn long-form text or blog URLs into a week's worth of multi-channel social media posts formatted specifically for each platform's algorithm.</li>
+            <li><strong className="text-slate-300">2. 🎯 Ad Studio:</strong> Generate targeted ad copies. Magic Feature: Click "Push to Ad Studio" from the Content Repurposer to automatically pre-fill your ad context. The Ad Studio also codes a beautiful, mobile-responsive HTML Landing Page on the fly.</li>
+            <li><strong className="text-slate-300">3. 🕵️ Competitor Intel:</strong> Extract complaints, positioning, and sentiment for any brand. Magic Feature: Click "Use Insights" to automatically send competitor weaknesses to the Content Repurposer.</li>
+            <li><strong className="text-slate-300">4. 📊 ROI Dashboard:</strong> Watch your savings grow. Calculates exact INR/USD saved based on team size and average salary.</li>
+          </ul>
+
+          <h5 className="text-cyan-400 font-semibold mt-8 mb-2">🏆 Hackathon Tracks Targeted</h5>
+          <ul className="list-disc pl-5 space-y-1 mt-3 text-slate-400">
+            <li>AI Content Engine</li>
+            <li>AI Ads Optimization</li>
+            <li>Marketing Automation (Connected module workflows)</li>
+            <li>Customer Insights & Analytics</li>
+          </ul>
+        </div>
+      </div>
+    ),
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
     icon: <FiDatabase className="w-8 h-8 text-purple-400" />,
     gradient: "from-purple-500/20 via-purple-500/5 to-transparent",
     borderGlow: "group-hover:border-purple-500/50 group-hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]",
