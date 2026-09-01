@@ -621,18 +621,17 @@ function ProjectCard({ project, index, setIsHovering, setSelectedProject }) {
       onMouseLeave={() => setIsHovering(false)}
       className={`group relative rounded-[2.5rem] overflow-hidden bg-white/[0.02] border border-white/[0.05] transition-all duration-700 flex flex-col h-full hover:bg-white/[0.04] hover:-translate-y-2 ${project.borderGlow}`}
     >
-      <div className={`h-72 w-full bg-gradient-to-b ${project.gradient} relative overflow-hidden flex items-center justify-center`}>
-        {/* Animated Grid Background */}
-        <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(rgba(255,255,255,1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,1)_1px,transparent_1px)] bg-[size:30px_30px] group-hover:scale-110 group-hover:opacity-[0.1] transition-all duration-1000" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#05050A] via-transparent to-transparent opacity-80" />
-        
-        <motion.div
-          whileHover={{ scale: 1.15, rotate: 5 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          className="relative z-10 w-24 h-24 rounded-3xl bg-white/[0.05] border border-white/[0.1] backdrop-blur-xl flex items-center justify-center shadow-2xl group-hover:shadow-[0_0_40px_rgba(255,255,255,0.1)] transition-shadow duration-500"
-        >
-          {project.icon}
-        </motion.div>
+      <div 
+        className={`h-72 w-full bg-gradient-to-b ${project.gradient} relative overflow-hidden cursor-pointer`} 
+        onClick={() => setSelectedProject && setSelectedProject(project)}
+      >
+        <img src={project.image} alt={project.title} className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#05050A] via-[#05050A]/40 to-transparent" />
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-mono text-sm shadow-xl flex items-center gap-2">
+            View Details <FiArrowRight />
+          </div>
+        </div>
       </div>
       
       <div className="p-12 flex-1 flex flex-col relative z-10 -mt-12 bg-gradient-to-b from-transparent to-[#05050A]">
@@ -644,24 +643,13 @@ function ProjectCard({ project, index, setIsHovering, setSelectedProject }) {
         <p className="text-slate-400 text-lg leading-relaxed mb-12 flex-1 font-light">{project.impact}</p>
         
         <div className="overflow-hidden mt-auto">
-          {project.link ? (
-            <motion.a 
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ x: 8 }}
-              className="text-white font-mono text-sm flex items-center gap-4 group/btn px-8 py-4 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300 w-fit"
-            >
-              View Repository <FiArrowRight className="text-indigo-400 group-hover/btn:translate-x-2 transition-transform w-5 h-5" />
-            </motion.a>
-          ) : (
-            <motion.button 
-              whileHover={{ x: 8 }}
-              className="text-white font-mono text-sm flex items-center gap-4 group/btn px-8 py-4 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300 w-fit"
-            >
-              View Architecture <FiArrowRight className="text-indigo-400 group-hover/btn:translate-x-2 transition-transform w-5 h-5" />
-            </motion.button>
-          )}
+          <motion.button 
+            onClick={() => setSelectedProject && setSelectedProject(project)}
+            whileHover={{ x: 8 }}
+            className="text-white font-mono text-sm flex items-center gap-4 group/btn px-8 py-4 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300 w-fit"
+          >
+            View Specifications <FiArrowRight className="text-indigo-400 group-hover/btn:translate-x-2 transition-transform w-5 h-5" />
+          </motion.button>
         </div>
       </div>
     </motion.div>
